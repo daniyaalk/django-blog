@@ -1,0 +1,12 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "${workspaceFolder:practice}/db.sqlite3",
+            "driver": "SQLite",
+            "name": "practice_blog_db",
+            "previewLimit": 50
+        }
+    ],
+    "sqltools.useNodeRuntime": true,
+    "python.pythonPath": "/home/daniyaal/.local/share/virtualenvs/practice-qMehZkHP/bin/python"
+}

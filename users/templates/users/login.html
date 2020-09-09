@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" class="btn btn-outline-primary" value="Sign In"> <small class="text-muted ml-3">Don't have an account? Sign up here.</small>
+    </form>
+{% endblock %}

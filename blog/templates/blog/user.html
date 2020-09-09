@@ -1,0 +1,24 @@
+{% extends  'blog/base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-4 order-lg-2">
+            <div class="card mt-3">
+                <img src="{{ profile_user.profile.picture.url }}" alt="" class="card-img-top user-profile-image">
+                <div class="card-body">
+                    <div class="border-bottom">
+                        <h5>@{{ profile_user.username }}</h5>
+                        <small class="text-muted">
+                            Last Seen: {{ profile_user.last_login|timesince }} ago<br>
+                            Joined: {{ profile_user.date_joined|date:"F j, Y" }}
+                        </small>
+                    </div>
+                    <div class="profile-posts-count mt-1">Posts: {{ posts|length }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 order-lg-1">
+            {% include 'blog/post_list_include.html' %}
+        </div>
+    </div>
+{% endblock %}

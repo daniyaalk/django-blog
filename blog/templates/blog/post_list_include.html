@@ -1,0 +1,23 @@
+{% for post in posts %}
+    <div class="card mt-3 border-secondary">
+        <div class="card-header">
+            <div class="media">
+                <img src="{{ post.author.profile.picture.url }}" class="author-image mr-3" alt="">
+                <div class="media-body">
+                    <h5 class="mt-0"><a href="{% url 'blog-post' post.pk %}">{{ post.title }}</a></h5>
+                    By <a href="{% url 'blog-user' post.author.username %}">@{{ post.author.username }}</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            {% if post.content|wordcount > 25 %}
+                {{ post.content|truncatewords:25 }}
+            {% else %}
+                {{ post.content }}
+            {% endif %}
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">{{ post.date_posted|timesince }} ago | {{ post.comment_set.count }} comments</small>
+        </div>
+    </div>
+{% endfor %}

@@ -1,0 +1,14 @@
+{% extends  'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="card mt-3 border-secondary">
+        <h5 class="card-header">New Post</h5>
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="Submit" name="submit" value="Post" class="btn btn-outline-primary"> <small class="text-muted ml-4"><a href="{% url 'blog-home' %}">Cancel</a></small>
+            </form>
+        </div>
+    </div>
+{% endblock %}

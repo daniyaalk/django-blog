@@ -1,0 +1,20 @@
+{% extends  'blog/base.html' %}
+
+{% block content %}
+    <div class="card mt-3 border-secondary">
+        <h5 class="card-header">
+            Are you sure?
+        </h5>
+        
+        <div class="card-body">
+            Post titled "{{ post.title }}" will be deleted.
+        </div>
+        <div class="card-footer">
+            <form method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Delete" class="btn btn-danger">
+                <a href="{% url 'blog-post' post.pk %}" class="ml-3">Go back</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}
